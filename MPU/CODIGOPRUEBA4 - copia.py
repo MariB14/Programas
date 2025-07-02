@@ -89,10 +89,21 @@ with open(filename, mode='w', newline='') as file:
 
             #desviacion media.
             #n = n + 1
-            #promx = gx_avg / n
-            #promy = gy_avg / n
-            #promz = gz_avg / n
-            #sumx = sumx + (gx_avg - promx)
+            #sumx = sumx + gx_avg
+            #sumy = sumy + gy_avg
+            #sumz = sumz + gz_avg
+            #promx = sumx / n
+            #promy = sumy / n
+            #promz = sumz / n
+
+            #xav = xav + (gx_avg - promx)
+            #yav = yav + (gy_avg - promy)
+            # zav = zav + (gz_avg - promz)
+            # 
+            # desvx =  xav / n
+            # desvy = yav / n
+            # desvz = zav /n 
+            
 
             # Imprimir en consola
             print(f"acelerómetro: {round(ax_avg, 2)} {round(ay_avg, 2)} {round(az_avg, 2)}")
