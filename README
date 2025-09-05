@@ -1,0 +1,29 @@
+Bitacora
+Son las 3 am
+No tengo mucha idea como usar este sensor
+
+Estaba viendo un tutorial pero no entiendo muy bien las lineas de codigo
+Ademas esta cosa te da coordenadas asi que creo que tendré 
+que usar alguna manera de traducirlas a algo mas sencillo
+
+Por ahora tambien pregunte a chatgpt y debo recordar 
+que hay que configurar esto en la terminal antes 
+de usar el modulo:
+
+sudo raspi-config
+
+Interface Options → Serial Port:
+
+¿Login shell por serial? → No
+
+¿Habilitar hardware serial? → Yes
+
+sudo apt update
+sudo apt install python3-serial gpsd gpsd-clients python3-gps
+
+
+Conexión segun documentación:
+VCC-3.3v 
+GND- pues GND
+TX-GPIO15 (UART RX) 
+RX - GPIO14(UART TX)
