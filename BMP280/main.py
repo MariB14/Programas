@@ -1,18 +1,18 @@
-#Mario UwU 
-import board
-import busio
-import adafruit_bmp280
-
-#con pip install -r requirements.txt se instalan dependencias 
-#I2C 0x76 (default del BMP280)
-
-i2c = busio.I2C(board.SCL,board.SDA)
-BMP280 = adafruit_bmp280.Adrafruit_BMP280_I2C(i2c)
-
-while True: 
-    print(f"Temperatura uwu: {BMP280.temperature:.2f} °C")
-    print(f"Presion owo: {BMP280.pressure:.2f} hPa")
-    print(f"Altitud: {BMP280.altitude}")
-    time.sleep(1)
+from machine import Pin, I2C
+from time import sleep, sleep_ms, sleep_us
+from BMP180LIB import BMP180
 
 
+def run():
+    busI2C = I2C(1, scl = Pin(22), sda=Pin(21), freq=100000)
+    bmp    = BMP180(busI2C)
+       
+    
+    while True:
+        print( "temp: "+ str( bmp.get_temperature() ) )
+        print( "pressure: "+ str( bmp.get_pressure() ) )
+        sleep(1)
+
+
+if __name__=="__main__":
+   run()
